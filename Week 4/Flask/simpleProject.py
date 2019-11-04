@@ -20,18 +20,17 @@ def createUser():
         db = shelve.open("storage.db", "c")
         try:
             usersDict = db["Users"]
+            User.User.countID = int(list(usersDict.keys())[-1]) 
         except:
             usersDict = {}
             print("Error in retrieving Users from storage.db")
         #? using class to create user instance
         user_instance = User.User(createUserForm.firstName.data, createUserForm.lastName.data, createUserForm.membership.data, createUserForm.gender.data, createUserForm.remarks.data)
-        usersDict[user.get_userID()] = user_instance
+        usersDict[user_instance.get_userID()] = user_instance
         db["Users"] = usersDict        
         db.close()
 
         return redirect(url_for("retrieveUsers"))
-    else:
-        print("Hi")
     return render_template("createUser.html", form=createUserForm)
 
 @app.route("/retrieveUsers", methods=["GET", "POST"])
