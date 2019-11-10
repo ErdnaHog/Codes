@@ -25,7 +25,7 @@ def createUser():
             usersDict = {}
             print("Error in retrieving Users from storage.db")
         #? using class to create user instance
-        user_instance = User.User(createUserForm.firstName.data, createUserForm.lastName.data, createUserForm.membership.data, createUserForm.gender.data, createUserForm.remarks.data)
+        user_instance = User.User(createUserForm.firstName.data, createUserForm.lastName.data, createUserForm.gender.data, createUserForm.membership.data, createUserForm.remarks.data)
         usersDict[user_instance.get_userID()] = user_instance
         db["Users"] = usersDict        
         db.close()

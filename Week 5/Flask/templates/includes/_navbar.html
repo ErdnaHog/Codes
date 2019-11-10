@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href={{ url_for("home") }}>LLS</a>
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href={{ url_for("home") }}>Home</a>
+    </li>
+    <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+        Manage Users
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href={{ url_for("createUser") }}>Create User</a>
+        <a class="dropdown-item" href={{ url_for("retrieveUsers") }}>Retrieve Users</a>
+      </div>
+    </li>
+      <li class="nav-item" >
+          <a class="nav-link" href={{ url_for("contact_us") }}>Contact Us</a>
+      </li>
+  </ul>
+</nav>
