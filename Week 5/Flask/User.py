@@ -9,6 +9,7 @@ class User:
         self.__gender = gender
         self.__membership = membership
         self.__remarks = remarks
+        self.__status = "Active"
 
     def get_userID(self):
         return self.__userID
@@ -28,6 +29,9 @@ class User:
     def get_remarks(self):
         return self.__remarks
 
+    def get_status(self):
+        return self.__status
+
     def set_userID(self, userID):
         self.__userID = userID
 
@@ -45,3 +49,6 @@ class User:
 
     def set_remarks(self, remarks):
         self.__remarks = remarks
+
+    def set_status(self, status):
+        self.__status = status

@@ -39,9 +39,17 @@ def retrieveUsers():
         db = shelve.open("storage.db", "w")
         usersDict = db["Users"]
         data = request.form.to_dict(flat=False)
-        del usersDict[int(list(data.keys())[0])]
+        userID = int(list(data.keys())[0])
+        user = usersDict.get(userID)
+        status = list(data.values())[0][0]
+        if status == "Deactive":
+            user.set_status("Deactive")
+        else:
+            user.set_status("Active")
+        usersDict[userID] = user
         db["Users"] = usersDict
         db.close()
+
     if os.path.exists("storage.db.dat"):
         db = shelve.open("storage.db", "r")
         usersDict = db["Users"]
