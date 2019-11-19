@@ -3,8 +3,10 @@ def main():
     for s in students:
         print(s.name, s.get_score(), "and allocated", s.allocated_school, "the choices are", ", ".join(s.choices))
 
+
 def byAverage_key(student):
     return student.get_score()
+
 
 def load_result():
     students = []
@@ -33,6 +35,7 @@ def load_result():
             x += 1
     return students
 
+
 class Student:
     def __init__(self, name):
         self.name = name
@@ -45,5 +48,6 @@ class Student:
 
     def get_score(self):
         return (self.math + self.chinese + self.english + self.science) / 4
+
 
 main()
