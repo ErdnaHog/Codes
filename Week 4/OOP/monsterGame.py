@@ -3,10 +3,11 @@ from random import randint
 
 class MonsterGame:
 
-    player_monster = ""
-    computer_monster = ""
     monster_dict = {"F": FireMonster(), "W": WaterMonster(), "G": GrassMonster()}
+
     def __init__(self):
+        self.player_monster = ""
+        self.computer_monster = ""
         self.choose_monster()
         self.generate_monster()
 
@@ -25,6 +26,7 @@ class MonsterGame:
     # def get_computer_monster(self):
     #     return self.computer_monster
 
+
 game = MonsterGame()
 while game.computer_monster.get_health() > 0 and game.player_monster.get_health() > 0:
     #your turn
@@ -42,5 +44,6 @@ while game.computer_monster.get_health() > 0 and game.player_monster.get_health(
     new_player_health = player_health - computer_attack
     game.player_monster.set_health(new_player_health)
     print(f"{game.player_monster.get_name()} suffers {computer_attack} damage, the health is {new_player_health} now")
+
 if player_health < computer_health:
     print("You lost!")

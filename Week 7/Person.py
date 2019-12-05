@@ -28,13 +28,15 @@ class Student(Person):
 
 # Part (c) Implement load_students() Function
 def load_students():
+    student_list = []
     try:
         file = open("student.txt", "r")
         contents = file.read()
         student_list = contents.split("\n")
-        return student_list
     except IOError:
         print("File is not found")
+    finally:
+        return student_list
 
 
 # Part (c) Implement assign_students() Function
